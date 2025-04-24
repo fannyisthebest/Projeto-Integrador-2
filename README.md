@@ -20,7 +20,7 @@
 -  **Cadastro, edição e exclusão de imóveis** (restrito a administradores)
 -  **Filtros de busca** por tipo, localização e valor
 -  **Cadastro de usuários** (administrador, corretor, cliente)
--  **Envio de formulários de contato**
+-  **Sistema para locatários baixarem boletos**
 -  **Sistema de alertas e notificações por e-mail**
 -  **Relatórios estatísticos** sobre imóveis e visitas
 
