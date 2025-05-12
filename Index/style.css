@@ -1,0 +1,15 @@
+.tittle {
+    font-weight: bold;
+    font-family: 'Poppins';
+    font-size: 20px;
+}
+
+.subtittle {
+    font-family: 'Poppins'; 
+    font-size: 12px;
+    color: #717171;
+}
+
+.blc {
+    font-weight: bold;
+}

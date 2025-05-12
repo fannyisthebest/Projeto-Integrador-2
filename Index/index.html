@@ -4,16 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Márcia Imobiliária</title>
-    <link rel="icon" href="../search/icon.png" type="image/png" /> <!-- Favicon -->
+    <link rel="icon" href="../search/icon.webp" type="image/webp" /> <!-- Favicon -->
     <link rel="stylesheet" href="../Index/style.css" /> <!-- Referênciando Css -->
     <script src="../Index/script.js"></script> <!-- Referênciando JavaScript -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> <!-- Fonte POPPINS -->
     <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind -->
 </head>
-<body>
-    <nav>
-        
-    </nav>
-
-
-</body>
+<body class="font-sans back ">
+    <!-- Navbar -->
+    <header class="absolute mt-4 w-full top-0  z-10 flex items-center justify-center   bg-transparent text-black" >
+     <div class="flex items-center justify-between bg-white px-10 py-3 w-[93%]" style="border-radius: 60px;">
+             <div class="flex items-center space-x-2">
+        <img src="../search/logo.png" alt="Logo" class="h-10"> <!-- Substitua pelo seu logo -->
+      </div>
+      <nav>
+        <ul class="hidden md:flex space-x-6">
+          <li><a href="#" class="hover:underline">Sobre Nós</a></li>
+          <li><a href="#" class="hover:underline">Locação</a></li>
+          <li><a href="#" class="hover:underline">Venda</a></li>
+          <li><a href="#" class="hover:underline">Contato</a></li>
+          <li><a href="#" class="hover:underline">Blog</a></li>
+        </ul>
+      </nav>
+      <button class="hidden md:block bg-white text-black px-4 py-2 rounded-full shadow hover:bg-gray-100 transition">
+        Sou locatário
+      </button>
+     </div>
+    </header>
+  
+    <div>
+    </div>
+    <!-- Banner -->
+    <section class=" bg-cover bg-center flex items-center justify-center text-center px-4 h-[85vh]"
+           style="background-image: url('../search/banner-nav1.png');" >
+      <div class="text-white drop-shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">A certeza do melhor negócio!</h1>
+        <p class="text-xl md:text-2xl">Encontre seu imóvel aqui</p>
+      </div>
+    </section>
+    <div class="px-20 py-10 w-full">    <!-- Div mãe para margem externa -->
+    <div class="w-full pb-7">
+      <h2 class="tittle">O que está buscando?</h2>
+      <span class="subtittle">Buscamos o melhor para você.</span>
+    </div>
+    <div class="grid grid-cols-5 gap-7 pb-7 h-[220px]"> <!-- Div cards-->
+      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col">
+        <div class="flex justify-center">
+          <img src="../search/i1.png" width="120px">
+        </div>
+        <div class="blc">
+          Casas
+        </div>
+      </div>
+      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col">
+        <div class="flex justify-center">
+          <img src="../search/i2.png" width="120px">
+        </div>
+        <div class="blc">
+          Apartamentos
+        </div>
+      </div>
+      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col">
+        <div class="flex justify-center">
+          <img src="../search/i3.png" width="120px">
+        </div>
+        <div class="blc">
+          Salas Comerciais
+        </div>
+      </div>
+      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col">
+        <div class="flex justify-center">
+          <img src="../search/i4.png" width="120px">
+        </div>
+        <div class="blc">
+          Terrenos
+        </div>
+      </div>
+      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col">
+        <div class="flex justify-center">
+          <img src="../search/i5.png" width="120px">
+        </div>
+        <div class="blc">
+          Sobrados
+        </div>
+      </div>
+    </div>
+    <div class="tittle pt-3">Conheça nossos principais Empreendimentos</div>
+      <div class="grid grid-flow-col grid-rows-3 gap-4">
+        <div class="row-span-3 ...">01</div>
+        <div class="col-span-2 ...">02</div>
+        <div class="col-span-2 row-span-2 ...">03</div>
+      </div>
+    </div> <!-- Div mãe para margem externa -->
+  </body>
 </html>
