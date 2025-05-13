@@ -15,11 +15,11 @@
     <header class="absolute mt-4 w-full top-0  z-10 flex items-center justify-center   bg-transparent text-black" >
      <div class="flex items-center justify-between bg-white px-10 py-3 w-[93%]" style="border-radius: 60px;">
              <div class="flex items-center space-x-2">
-        <img src="../search/logo.png" alt="Logo" class="h-10"> <!-- Substitua pelo seu logo -->
+        <img src="../search/logo.png" alt="Logo" class="h-10">
       </div>
       <nav>
         <ul class="hidden md:flex space-x-6">
-          <li><a href="#" class="hover:underline">Sobre Nós</a></li>
+          <li><a href="../Sobre-nós/sobrenos.html" class="hover:underline">Sobre Nós</a></li>
           <li><a href="#" class="hover:underline">Locação</a></li>
           <li><a href="#" class="hover:underline">Venda</a></li>
           <li><a href="#" class="hover:underline">Contato</a></li>
@@ -38,8 +38,8 @@
     <section class=" bg-cover bg-center flex items-center justify-center text-center px-4 h-[85vh]"
            style="background-image: url('../search/banner-nav1.png');" >
       <div class="text-white drop-shadow-lg">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">A certeza do melhor negócio!</h1>
-        <p class="text-xl md:text-2xl">Encontre seu imóvel aqui</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 cursor-default">A certeza do melhor negócio!</h1>
+        <p class="text-xl md:text-2xl cursor-default">Encontre seu imóvel aqui</p>
       </div>
     </section>
     <div class="px-20 py-10 w-full">    <!-- Div mãe para margem externa -->
@@ -48,7 +48,7 @@
       <span class="subtittle">Buscamos o melhor para você.</span>
     </div>
     <div class="grid grid-cols-5 gap-7 pb-7 h-[220px]"> <!-- Div cards-->
-      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col">
+      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col transition-transform duration-300 hover:scale-105">
         <div class="flex justify-center">
           <img src="../search/i1.png" width="120px">
         </div>
@@ -56,7 +56,7 @@
           Casas
         </div>
       </div>
-      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col">
+      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col transition-transform duration-300 hover:scale-105">
         <div class="flex justify-center">
           <img src="../search/i2.png" width="120px">
         </div>
@@ -64,7 +64,7 @@
           Apartamentos
         </div>
       </div>
-      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col">
+      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col transition-transform duration-300 hover:scale-105">
         <div class="flex justify-center">
           <img src="../search/i3.png" width="120px">
         </div>
@@ -72,7 +72,7 @@
           Salas Comerciais
         </div>
       </div>
-      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col">
+      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col transition-transform duration-300 hover:scale-105">
         <div class="flex justify-center">
           <img src="../search/i4.png" width="120px">
         </div>
@@ -80,7 +80,7 @@
           Terrenos
         </div>
       </div>
-      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col">
+      <div class="bg-[#F7F7F7] rounded-lg items-center justify-center flex flex-col transition-transform duration-300 hover:scale-105">
         <div class="flex justify-center">
           <img src="../search/i5.png" width="120px">
         </div>
@@ -89,12 +89,39 @@
         </div>
       </div>
     </div>
-    <div class="tittle pt-3">Conheça nossos principais Empreendimentos</div>
-      <div class="grid grid-flow-col grid-rows-3 gap-4">
-        <div class="row-span-3 ...">01</div>
-        <div class="col-span-2 ...">02</div>
-        <div class="col-span-2 row-span-2 ...">03</div>
+    <h2 class="tittle pt-3 pb-4">Conheça nossos principais Empreendimentos</h2>
+      <div class="grid grid-cols-10 gap-4 h-[90vh] w-full">
+        <!-- Card 1 -->
+        <div class="group relative row-span-2 col-span-5 rounded-lg bg-[url('../search/e2.webp')] bg-cover bg-center overflow-hidden cursor-pointer">
+          <div class="absolute inset-0 bg-black bg-opacity-30 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
+          <div class="absolute bottom-0 left-0 w-full text-white p-4 z-10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out text-left">
+            <h3 class="text-xl font-bold drop-shadow">Grande Rio Resort Residence</h3>
+            <p class="drop-shadow">3 quartos | 4 banheiros | 2 vagas</p>
+            <p class="drop-shadow">A partir de <b>1.437.000</b></p>
+          </div>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="group relative col-span-5 rounded-lg bg-[url('../search/e1.webp')] bg-cover bg-center overflow-hidden cursor-pointer">
+          <div class="absolute inset-0 bg-black bg-opacity-30 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
+          <div class="absolute bottom-0 left-0 w-full text-white p-4 z-10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out text-left">
+            <h3 class="text-xl font-bold drop-shadow">Res. Antonella</h3>
+            <p class="drop-shadow">1-3 quartos | 1 - 2 banheiros | 1 vaga</p>
+            <p class="drop-shadow">A partir de <b>332.792</b></p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="group relative col-span-5 rounded-lg bg-[url('../search/e3.webp')] bg-cover bg-center overflow-hidden cursor-pointer">
+          <div class="absolute inset-0 bg-black bg-opacity-30 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
+          <div class="absolute bottom-0 left-0 w-full text-white p-4 z-10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out text-left">
+            <h3 class="text-xl font-bold drop-shadow">Residencial Porto Fino</h3>
+            <p class="drop-shadow">3 quartos | 2 banheiros | 2 vagas</p>
+            <p class="drop-shadow">A partir de <b>599.000</b></p>
+          </div>
+        </div>
       </div>
+      <h2 class="pt-6 tittle">Para quem deseja Alugar</h2>
     </div> <!-- Div mãe para margem externa -->
   </body>
 </html>
