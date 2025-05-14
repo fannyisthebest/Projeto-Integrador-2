@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Márcia Imobiliária</title>
+    <title>Sobre nós | Marcia Imobiliária</title>
     <link rel="icon" href="../search/icon.webp" type="image/webp" /> <!-- Favicon -->
-    <link rel="stylesheet" href="../Index/style.css" /> <!-- Referênciando Css -->
-    <script src="../Index/script.js"></script> <!-- Referênciando JavaScript -->
+    <link rel="stylesheet" href="../Sobre-nós/sobrenos.css" /> <!-- Referênciando Css -->
+    <script src="../Sobre-nós/sobrenos.js"></script> <!-- Referênciando JavaScript -->
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> <!-- Fonte POPPINS -->
     <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind -->
 </head>
@@ -14,8 +14,9 @@
     <!-- Navbar -->
     <header class="absolute mt-4 w-full top-0  z-10 flex items-center justify-center   bg-transparent text-black" >
      <div class="flex items-center justify-between bg-white px-10 py-3 w-[93%]" style="border-radius: 60px;">
-             <div class="flex items-center space-x-2">
-        <img src="../search/logo.png" alt="Logo" class="h-10">
+        <div class="flex items-center space-x-2">
+          <a href="../Index/index.html">
+            <img src="../search/logo.png" alt="Logo" class="h-10"></a>
       </div>
       <nav>
         <ul class="hidden md:flex space-x-6">
@@ -41,10 +42,31 @@
         <h1 class="text-4xl md:text-5xl font-bold mb-4 cursor-default">Quem somos?</h1>
       </div>
     </section>
-    <div class="px-20 py-10 w-full"> <!-- Div mãe - margem -->
-            <div class="w-full pb-7">
-      <h2 class="tittle">Nossa história</h2>
+<div class="px-20 py-10 w-full"> <!-- Div mãe - margem inicio -->
+    <div class="grid grid-cols-2 h-auto"> 
+      <!-- Lado do texto -->
+      <div class="flex justify-center items-center h-full">
+        <div>
+          <h2 class="title mb-4">Nossa história</h2>
+          <p class="text">
+            Há mais de 25 anos no mercado imobiliário de Foz do Iguaçu, a Marcia Consultoria Imobiliária busca através de um atendimento único e personalizado, atender às necessidades de seus clientes, analisando suas preferências e oferecendo-lhes as melhores opções da cidade.
+          </p>
+          <p class="text">
+            Trabalhamos com locação, venda, administração e avaliação de imóveis, junto a um departamento jurídico especializado em direito imobiliário, o que garante segurança jurídica em todas as transações realizadas.
+          </p>
+          <p class="text">
+            Além de nossa carteira consolidada de clientes, possuímos grande presença online, anunciando nossos imóveis nos melhores portais imobiliários nacionais e internacionais, o que proporciona a certeza do melhor negócio para compradores e vendedores, bem como proprietários e inquilinos.
+          </p>
         </div>
-    </div> <!-- Div mãe - margem -->
+      </div>
+      <!-- Lado da imagem -->
+      <div class="flex justify-center items-center h-full">
+        <img src="../search/ab1.png" alt="Foto" width="450px" height="450px" class="rounded-lg">
+      </div>
+  </div>
+  <div class="pt-10 text-center">
+    <h2 class="title">Nossa equipe</h2>
+  </div>
+</div> <!-- Div mãe - margem fim -->
 </body>
 </html>
