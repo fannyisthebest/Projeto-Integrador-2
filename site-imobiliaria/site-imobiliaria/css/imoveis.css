@@ -1,0 +1,149 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f0f2f5;
+}
+
+.navbar {
+  background-color: #004080;
+  padding: 15px;
+  text-align: center;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.imovel {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.imovel img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 15px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #004080;
+}
+
+.swiper-pagination-bullet-active {
+  background: #004080;
+}
+
+.acoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.acoes button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.acoes .editar {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.acoes .excluir {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Modal de edição */
+.modal-edicao {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-conteudo {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-conteudo h2 {
+  margin-top: 0;
+}
+
+.modal-conteudo form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-conteudo label {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.modal-conteudo input,
+.modal-conteudo select,
+.modal-conteudo textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+.botoes-modal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.botoes-modal button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.botoes-modal button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+}
+
+.botoes-modal button#cancelar {
+  background-color: #6c757d;
+  color: white;
+}

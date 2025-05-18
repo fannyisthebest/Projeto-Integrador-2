@@ -6,8 +6,8 @@
     <title>Sobre nós | Marcia Imobiliária</title>
     <link rel="icon" href="../search/icon.webp" type="image/webp" /> <!-- Favicon -->
     <link rel="stylesheet" href="../Sobre-nós/sobrenos.css" /> <!-- Referênciando Css -->
-    <script src="../Sobre-nós/sobrenos.js"></script> <!-- Referênciando JavaScript -->
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> <!-- Fonte POPPINS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> <!-- MAPA -->
     <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind -->
 </head>
 <body class="font-sans back ">
@@ -64,9 +64,99 @@
         <img src="../search/ab1.png" alt="Foto" width="450px" height="450px" class="rounded-lg">
       </div>
   </div>
-  <div class="pt-10 text-center">
+  <div class="py-10 text-center">
     <h2 class="title">Nossa equipe</h2>
   </div>
+    <div class="flex gap-4 justify-center">
+    <!-- Coluna 1 -->
+    <div class="w-3/10">
+      <div class="bg-white shadow-md rounded-2xl p-4">
+        <div>
+          <img src="../search/s1.png" width="auto" height="auto">
+        </div>
+        <h2 class="text-xl font-bold mb-2 pt-3 title">Marcia Zanotti</h2>
+        <p class="text m-0">CRECI: 13021-F</p>
+        <div class="text-center pt-3">
+          <a href="https://wa.me/5545999836365?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Gostaria%20de%20solicitar%20um%20atendimento.">
+            <button type="button" class="w-full py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Entre em contato</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Coluna 2 -->
+    <div class="w-3/10">
+      <div class="bg-white shadow-md rounded-2xl p-4">
+        <div>
+          <img src="../search/s2.png" width="auto" height="auto">
+        </div>
+        <h2 class="text-xl font-bold mb-2 pt-3 title">Carlos Zanotti</h2>
+        <p>ㅤ</p>
+        <div class="text-center pt-3 pb-6">
+          <a href="https://wa.me/5545998254188?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Gostaria%20de%20solicitar%20um%20atendimento.">
+            <button type="button" class="w-full py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Entre em contato</button>
+          </a>
+          </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="title mb-4">Como chegar?</h2>
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Card do Mapa -->
+      <div class="bg-white rounded-lg shadow p-4 text-center">
+        <div id="map" class="rounded-lg overflow-hidden"></div>
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=Rua+Bartolomeu+de+Gusm%C3%A3o,+1148,+Foz+do+Igua%C3%A7u+-+PR"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white font-semibold w-full py-3 rounded transition"
+        >
+          Ver rotas no Google Maps
+        </a>
+      </div>
+
+      <div class="bg-gray-200 rounded-lg p-6 space-y-6 text-gray-900">
+
+  <!-- Endereço -->
+  <div class="flex items-start gap-3 mt-0">
+    <svg class="w-6 h-6 flex-shrink-0 text-gray-700 mt-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1118 0z"></path>
+      <circle cx="12" cy="10" r="3"></circle>
+    </svg>
+    <div>
+      <strong class="block font-semibold title">Endereço</strong>
+      <p class="text">Rua Bartolomeu de Gusmão, 1148 - Centro,<br>Foz do Iguaçu - PR, 85851-160</p>
+    </div>
+  </div>
+
+  <!-- Horário -->
+  <div class="flex items-start gap-3 mt-0">
+    <svg class="w-6 h-6 flex-shrink-0 text-gray-700 mt-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 6v6l4 2"></path>
+    </svg>
+    <div>
+      <strong class="block font-semibold title">Horário de Atendimento</strong>
+      <p class="text">De segunda à sexta, das 14h às 18h</p>
+    </div>
+  </div>
+
+  <!-- Contato -->
+  <div class="flex items-start gap-3 mt-0">
+    <svg class="w-6 h-6 flex-shrink-0 text-gray-700 mt-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+      <circle cx="12" cy="18" r="1"></circle>
+    </svg>
+    <div>
+      <strong class="block font-semibold title">Contato</strong>
+      <a href="mailto:marciaimobiliariafoz@hotmail.com" class="text hover:underline">marciaimobiliariafoz@hotmail.com</a><br>
+      <a href="tel:+554535742800" class="text hover:underline">(45) 3574-2800</a>
+    </div>
+  </div>
+</div>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </div> <!-- Div mãe - margem fim -->
+<script src="../Sobre-nós/sobrenos.js"></script> <!-- Referênciando JavaScript -->
 </body>
 </html>

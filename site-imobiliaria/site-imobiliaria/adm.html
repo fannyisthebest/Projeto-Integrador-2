@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Cadastro de Imóveis</title>
+  <link rel="stylesheet" href="css/adm.css">
+  <!-- FilePond CSS -->
+  <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="adm.html">Cadastro de Imóveis</a>
+    <a href="clientes.html">Cadastro de Clientes</a>
+    <a href="clientes-lista.html">Lista de Clientes</a>
+    <a href="imoveis.html">Listar Imóveis</a>
+  </nav>
+
+  <div class="card">
+    <form id="imovelForm">
+      <label for="titulo">Título do Imóvel</label>
+      <input type="text" id="titulo" required>
+
+      <label for="descricao">Descrição</label>
+      <textarea id="descricao" required></textarea>
+
+      <label for="tipoImovel">Tipo de Imóvel</label>
+      <select id="tipoImovel" required>
+        <option value="">Selecione</option>
+        <option value="casa">Casa</option>
+        <option value="apartamento">Apartamento</option>
+        <option value="terreno">Terreno</option>
+        <option value="comercial">Comercial</option>
+      </select>
+
+      <label for="finalidade">Finalidade</label>
+      <select id="finalidade" required>
+        <option value="">Selecione</option>
+        <option value="venda">Venda</option>
+        <option value="locacao">Locação</option>
+        <option value="ambos">Ambos</option>
+      </select>
+
+      <label for="quartos">Quartos</label>
+      <select id="quartos" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="+4">+4</option>
+      </select>
+
+      <label for="banheiros">Banheiros</label>
+      <select id="banheiros" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="+4">+4</option>
+      </select>
+
+      <label for="vagas">Vagas de Garagem</label>
+      <select id="vagas" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="+4">+4</option>
+      </select>
+
+      <label for="valor">Valor (R$)</label>
+      <input type="number" id="valor" required>
+
+      <label for="iptu">Valor IPTU (R$)</label>
+      <input type="number" id="iptu">
+
+      <label for="proprietario">Proprietário</label>
+      <select id="proprietario" required>
+        <option value="">Selecione</option>
+      </select>
+
+      <label for="inquilino">Inquilino (opcional)</label>
+      <select id="inquilino">
+        <option value="">Nenhum</option>
+      </select>
+
+      <label for="fotos">Fotos do Imóvel</label>
+      <input type="file" id="fotos" name="fotos" multiple />
+
+      <button type="submit">Salvar Imóvel</button>
+    </form>
+  </div>
+  <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+  <script src="js/adm.js"></script>
+</body>
+</html>

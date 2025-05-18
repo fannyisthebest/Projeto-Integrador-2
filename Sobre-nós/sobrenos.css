@@ -10,3 +10,9 @@
     line-height: 1.6;
     margin-bottom: 20px;
 }
+
+#map {
+    height: 400px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
