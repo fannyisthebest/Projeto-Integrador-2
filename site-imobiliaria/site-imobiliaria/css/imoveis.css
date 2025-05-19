@@ -147,3 +147,15 @@ body {
   background-color: #6c757d;
   color: white;
 }
+
+#listaImoveis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.imovel {
+  width: 300px;
+  flex-shrink: 0;
+}
