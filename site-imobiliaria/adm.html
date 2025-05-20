@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Admin - Cadastro de Imóveis</title>
   <link rel="stylesheet" href="css/adm.css">
-  <!-- FilePond CSS -->
   <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
 </head>
 <body>
@@ -18,10 +17,10 @@
   <div class="card">
     <form id="imovelForm">
       <label for="titulo">Título do Imóvel</label>
-      <input type="text" id="titulo" required>
+      <input type="text" id="titulo" required placeholder="Adicione um título">
 
       <label for="descricao">Descrição</label>
-      <textarea id="descricao" required></textarea>
+      <textarea id="descricao" required placeholder="Adicione uma descrição"></textarea>
 
       <label for="tipoImovel">Tipo de Imóvel</label>
       <select id="tipoImovel" required>
@@ -47,6 +46,9 @@
         <option value="3">3</option>
         <option value="+4">+4</option>
       </select>
+      <div id="quartosExtraContainer" style="display:none;">
+        <input type="number" id="quartosExtra" placeholder="Quantidade de quartos" min="5" />
+      </div>
 
       <label for="banheiros">Banheiros</label>
       <select id="banheiros" required>
@@ -55,6 +57,9 @@
         <option value="3">3</option>
         <option value="+4">+4</option>
       </select>
+      <div id="banheirosExtraContainer" style="display:none;">
+        <input type="number" id="banheirosExtra" placeholder="Quantidade de banheiros" min="5" />
+      </div>
 
       <label for="vagas">Vagas de Garagem</label>
       <select id="vagas" required>
@@ -63,12 +68,32 @@
         <option value="3">3</option>
         <option value="+4">+4</option>
       </select>
+      <div id="vagasExtraContainer" style="display:none;">
+        <input type="number" id="vagasExtra" placeholder="Quantidade de vagas" min="5" />
+      </div>
+
+      <label for="cep">CEP</label>
+      <input type="text" id="cep" maxlength="9" required placeholder="00000-000">
+
+      <label for="rua">Rua</label>
+      <input type="text" id="rua" readonly required>
+
+      <div style="display: flex; gap: 20px;">
+        <div style="flex: 2;">
+          <label for="bairro">Bairro</label>
+          <input type="text" id="bairro" required>
+        </div>
+        <div style="flex: 1;">
+          <label for="numero">Número</label>
+          <input type="text" id="numero" required placeholder="Digite o Número">
+        </div>
+      </div>
 
       <label for="valor">Valor (R$)</label>
-      <input type="number" id="valor" required>
+      <input type="number" id="valor" required placeholder="Digite o valor">
 
       <label for="iptu">Valor IPTU (R$)</label>
-      <input type="number" id="iptu">
+      <input type="number" id="iptu" placeholder="Digite o valor do IPTU">
 
       <label for="proprietario">Proprietário</label>
       <select id="proprietario" required>
@@ -86,6 +111,7 @@
       <button type="submit">Salvar Imóvel</button>
     </form>
   </div>
+
   <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
   <script src="js/adm.js"></script>
 </body>

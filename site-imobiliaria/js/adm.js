@@ -1,27 +1,36 @@
-console.log("JS carregado");
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("imovelForm");
+  const fileInput = document.getElementById("fotos");
 
-  // Inicializa FilePond
-  const pond = FilePond.create(document.getElementById("fotos"), {
-    allowMultiple: true,
-    maxFiles: 10,
-    labelIdle: 'Arraste as fotos ou <span class="filepond--label-action">clique aqui</span>',
+  const filepond = FilePond.create(fileInput);
+
+  function buscarEnderecoPorCEP(cep) {
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then(response => response.json())
+      .then(data => {
+        if (!data.erro) {
+          document.getElementById("rua").value = data.logradouro;
+          document.getElementById("bairro").value = data.bairro;
+        }
+      });
+  }
+
+  document.getElementById("cep").addEventListener("blur", e => {
+    const cep = e.target.value.replace(/\D/g, '');
+    if (cep.length === 8) {
+      buscarEnderecoPorCEP(cep);
+    }
   });
 
-  function carregarClientes() {
+  function preencherClientes() {
     const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
     const proprietarioSelect = document.getElementById("proprietario");
     const inquilinoSelect = document.getElementById("inquilino");
-
-    proprietarioSelect.innerHTML = `<option value="">Selecione</option>`;
-    inquilinoSelect.innerHTML = `<option value="">Nenhum</option>`;
 
     clientes.forEach(cliente => {
       const option = document.createElement("option");
       option.value = cliente.cpf;
       option.textContent = `${cliente.nome} (${cliente.cpf})`;
-
       if (cliente.tipo === "proprietario") {
         proprietarioSelect.appendChild(option);
       } else if (cliente.tipo === "inquilino") {
@@ -30,46 +39,67 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  carregarClientes();
+  preencherClientes();
 
-  async function converterArquivosParaBase64(arquivos) {
-    return Promise.all(
-      arquivos.map(fileItem => {
-        return new Promise((resolve) => {
-          const reader = new FileReader();
-          reader.onload = (e) => resolve(e.target.result);
-          reader.readAsDataURL(fileItem.file);
-        });
-      })
-    );
-  }
+  // Mostrar campo extra se "+4" for selecionado
+  const quartos = document.getElementById("quartos");
+  const banheiros = document.getElementById("banheiros");
+  const vagas = document.getElementById("vagas");
 
-  form.addEventListener("submit", async (e) => {
+  quartos.addEventListener("change", () => {
+    document.getElementById("quartosExtraContainer").style.display = quartos.value === "+4" ? "block" : "none";
+  });
+
+  banheiros.addEventListener("change", () => {
+    document.getElementById("banheirosExtraContainer").style.display = banheiros.value === "+4" ? "block" : "none";
+  });
+
+  vagas.addEventListener("change", () => {
+    document.getElementById("vagasExtraContainer").style.display = vagas.value === "+4" ? "block" : "none";
+  });
+
+  form.addEventListener("submit", async e => {
     e.preventDefault();
-    console.log('pond,getFiles ',pond.getFiles())
-    const fotosBase64 = await converterArquivosParaBase64(pond.getFiles());
+
     const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
 
+    const fotos = await Promise.all(filepond.getFiles().map(fileItem => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result); // base64 string
+        reader.onerror = reject;
+        reader.readAsDataURL(fileItem.file);
+      });
+    }));
+
     const imovel = {
-      titulo: form["titulo"].value,
-      descricao: form["descricao"].value,
-      tipo: form["tipoImovel"].value,
-      finalidade: form["finalidade"].value,
-      valor: parseFloat(form["valor"].value),
-      iptu: parseFloat(form["iptu"].value),
-      quartos: form["quartos"].value,
-      banheiros: form["banheiros"].value,
-      vagas: form["vagas"].value,
-      proprietario: form["proprietario"].value,
-      inquilino: form["inquilino"].value || null,
-      fotos: fotosBase64
+      titulo: document.getElementById("titulo").value,
+      descricao: document.getElementById("descricao").value,
+      tipo: document.getElementById("tipoImovel").value,
+      finalidade: document.getElementById("finalidade").value,
+      quartos: quartos.value === "+4" ? document.getElementById("quartosExtra").value : quartos.value,
+      banheiros: banheiros.value === "+4" ? document.getElementById("banheirosExtra").value : banheiros.value,
+      vagas: vagas.value === "+4" ? document.getElementById("vagasExtra").value : vagas.value,
+      cep: document.getElementById("cep").value,
+      rua: document.getElementById("rua").value,
+      bairro: document.getElementById("bairro").value,
+      numero: document.getElementById("numero").value,
+      valor: parseFloat(document.getElementById("valor").value),
+      iptu: parseFloat(document.getElementById("iptu").value) || 0,
+      proprietario: document.getElementById("proprietario").value,
+      inquilino: document.getElementById("inquilino").value || null,
+      fotos: fotos
     };
 
     imoveis.push(imovel);
     localStorage.setItem("imoveis", JSON.stringify(imoveis));
-
-    alert("Imóvel cadastrado com sucesso!");
+    alert("Imóvel salvo com sucesso!");
     form.reset();
-    pond.removeFiles();
+    filepond.removeFiles();
+    document.getElementById("rua").value = "";
+    document.getElementById("bairro").value = "";
+    document.getElementById("quartosExtraContainer").style.display = "none";
+    document.getElementById("banheirosExtraContainer").style.display = "none";
+    document.getElementById("vagasExtraContainer").style.display = "none";
   });
 });
