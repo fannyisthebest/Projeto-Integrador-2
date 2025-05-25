@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imóveis | Marcia Imobiliária</title>
+    <link rel="icon" href="../search/icon.webp" type="image/webp">
+    <link rel="stylesheet" href="../Sobre-nós/sobrenos.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans back">
+
+    <!-- Navbar (já pronta) -->
+  <header class="absolute mt-4 w-full top-0  z-10 flex items-center justify-center   bg-transparent text-black" >
+     <div class="flex items-center justify-between bg-white px-10 py-3 w-[93%]" style="border-radius: 60px;">
+      <div class="flex items-center space-x-2">
+        <a href="../Index/index.html">
+          <img src="../search/logo.png" alt="Logo" class="h-10"></a>
+      </div>
+      <nav>
+        <ul class="hidden md:flex space-x-6">
+          <li><a href="../Sobre-nós/sobrenos.html" class="hover:underline">Sobre Nós</a></li>
+          <li><a href="../Imóveis/imoveis.html?finalidade=locacao" class="hover:underline">Locação</a></li>
+          <li><a href="../Imóveis/imoveis.html?finalidade=venda" class="hover:underline">Venda</a></li>
+          <li><a href="../Contato/contato.html" class="hover:underline">Contato</a></li>
+          <li><a href="#" class="hover:underline">Blog</a></li>
+        </ul>
+      </nav>
+      <button class="hidden md:block bg-white text-black px-4 py-2 rounded-full shadow hover:bg-gray-100 transition">
+        Sou locatário
+      </button>
+     </div>
+  </header>
+
+    <!-- Banner -->
+    <section class="bg-cover bg-center flex items-center justify-center text-center px-4 h-[85vh]"
+        style="background-image: url('../search/banner-nav3.png');">
+        <div class="text-white drop-shadow-lg">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 cursor-default">Imóveis</h1>
+        </div>
+    </section>
+
+    <!-- Filtro e Listagem -->
+    <div class="px-20 py-10 w-full">
+        <div class="mb-8">
+            <h2 class="text-3xl font-semibold mb-4">Imóveis disponíveis para: <span id="tipoFiltro"></span></h2>
+        </div>
+        <div id="listaImoveis" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="imoveis.js"></script>
+</body>
+</html>

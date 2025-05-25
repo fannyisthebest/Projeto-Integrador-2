@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Clientes</title>
+  <link rel="stylesheet" href="css/clientes.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="adm.html">Cadastro de Imóveis</a>
+    <a href="clientes.html">Cadastro de Clientes</a>
+    <a href="clientes-lista.html">Lista de Clientes</a>
+    <a href="imoveis.html">Listar Imóveis</a>
+    <a href="contato-lista.html">Lista de Contato</a>
+  </nav>
+
+  <div class="card">
+    <h2>Clientes Cadastrados</h2>
+    <table id="clientesTable">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Telefone</th>
+          <th>Email</th>
+          <th>Endereço</th>
+          <th>Tipo</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Modal de Edição -->
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Editar Cliente</h3>
+      <input type="text" id="editNome" placeholder="Nome">
+      <input type="text" id="editCPF" placeholder="CPF" disabled>
+      <input type="text" id="editTelefone" placeholder="Telefone">
+      <input type="email" id="editEmail" placeholder="Email">
+      <input type="text" id="editEndereco" placeholder="Endereço">
+      <select id="editTipo">
+        <option value="Proprietário">proprietário</option>
+        <option value="Inquilino">inquilino</option>
+      </select>
+
+      <button id="saveEdit">Salvar</button>
+      <button onclick="closeModal()">Cancelar</button>
+    </div>
+  </div>
+
+  <script src="js/clientes-lista.js"></script>
+</body>
+</html>

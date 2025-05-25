@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Imóveis Cadastrados</title>
+  <link rel="stylesheet" href="css/imoveis.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="adm.html">Cadastro de Imóveis</a>
+    <a href="clientes.html">Cadastro de Clientes</a>
+    <a href="clientes-lista.html">Lista de Clientes</a>
+    <a href="imoveis.html">Listar Imóveis</a>
+    <a href="contato-lista.html">Lista de Contato</a>
+  </nav>
+  <div class="container">
+    <h2>Imóveis Cadastrados</h2>
+    <div class="filtros">
+      <label for="filtroTipo">Tipo:</label>
+      <select id="filtroTipo">
+        <option value="">Todos</option>
+        <option value="casa">Casa</option>
+        <option value="apartamento">Apartamento</option>
+        <option value="terreno">Terreno</option>
+        <option value="comercial">Comercial</option>
+      </select>
+
+      <label for="filtroFinalidade">Finalidade:</label>
+      <select id="filtroFinalidade">
+        <option value="">Todas</option>
+        <option value="venda">Venda</option>
+        <option value="locacao">Locação</option>
+        <option value="ambos">Ambos</option>
+      </select>
+    </div>
+
+    <main id="listaImoveis"></main>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="js/imoveis.js"></script>
+</body>
+</html>
