@@ -1,21 +1,20 @@
-# 🏠 Projeto Integrador II – Site para Imobiliária
+# Projeto Integrador II – Site para Imobiliária
 
 **Nome:** *Kamilly Vitória Rocha Gonzalez*  
 **Curso:** *Análise e Desenvolvimento de Sistemas*  
 **Disciplina:** *Projeto Integrador*  
 **Professor:** *Gustavo Collombeli*  
-**Data:** `28/04/2025`
+**Data:** `26/05/2025`
 
 ---
 
-## 📄 Descrição do Projeto
+## Descrição do Projeto
 
-> Este projeto tem como objetivo desenvolver um novo site institucional para a **Márcia Consultoria Imobiliária**.  
-> A proposta surgiu da necessidade de melhorar a identidade visual da empresa, facilitar a navegação dos usuários e permitir maior autonomia na gestão de conteúdo.
+> Este projeto tem como objetivo criar um novo site institucional para a **Marcia Consultoria Imobiliária**, visando melhorar a comunicação com os clientes, facilitar a navegação, otimizar a divulgação de imóveis e oferecer à equipe administrativa maior autonomia na atualização de conteúdos, fortalecendo assim a presença digital da empresa.
 
 ---
 
-## ✅ Funcionalidades
+## Funcionalidades
 
 -  **Cadastro, edição e exclusão de imóveis** (restrito a administradores)
 -  **Filtros de busca** por tipo, localização e valor
@@ -26,7 +25,7 @@
 
 ---
 
-## 🔧 Requisitos
+## Requisitos
 
 -  Interface **responsiva** (funciona em celulares e computadores)
 -  Compatível com **principais navegadores**
@@ -36,16 +35,14 @@
 
 ---
 
-## 🎯 Objetivo Geral
+## Objetivo Geral
 
 **Criar um site moderno, funcional e seguro que atenda às necessidades da imobiliária e melhore a experiência dos usuários.**
 
 ---
 
-## 🧪 Tecnologias sugeridas (MODELO)
+## Tecnologias utilizadas
 
 ```bash
 HTML5, CSS3, JavaScript
-PHP ou Node.js para backend
-MySQL ou PostgreSQL para banco de dados
-Bootstrap ou Tailwind CSS para o design
+Tailwind CSS para o design
