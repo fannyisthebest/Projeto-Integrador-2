@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Locatário | Marcia Imobiliária</title>
+  <link rel="icon" href="../search/icon.webp" type="image/webp" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+
+  <!-- Navbar -->
+  <header class="absolute mt-4 w-full top-0 z-10 flex items-center justify-center bg-transparent text-black">
+    <div class="flex items-center justify-between bg-white px-10 py-3 w-[93%] rounded-full shadow">
+      <div class="flex items-center space-x-2">
+        <a href="../Index/index.html">
+          <img src="../search/logo.png" alt="Logo" class="h-10" />
+        </a>
+      </div>
+      <nav>
+        <ul class="hidden md:flex space-x-6">
+          <li><a href="../Sobre-nós/sobrenos.html" class="hover:underline">Sobre Nós</a></li>
+          <li><a href="../Imóveis/imoveis.html?finalidade=locacao" class="hover:underline">Locação</a></li>
+          <li><a href="../Imóveis/imoveis.html?finalidade=venda" class="hover:underline">Venda</a></li>
+          <li><a href="../Contato/contato.html" class="hover:underline">Contato</a></li>
+          <li><a href="#" class="hover:underline">Blog</a></li>
+        </ul>
+      </nav>
+      <a href="../Login/login.html">
+      <button class="hidden md:block bg-white text-black px-4 py-2 rounded-full shadow hover:bg-gray-100 transition">
+        Sou locatário
+      </button></a>
+    </div>
+  </header>
+
+  <main class="flex justify-center items-center min-h-screen pt-32 bg-white">
+    <div class="flex w-[90%] max-w-6xl bg-white rounded-lg overflow-hidden">
+      
+      <!-- Formulário -->
+      <div class="w-1/2 p-10 flex flex-col justify-center items-center bg-white">
+        <div class="border border-[#236DCC] rounded-[30px] px-10 py-20 w-full max-w-md">
+          <h2 class="text-2xl font-bold mb-6 text-center">Área do Cliente</h2>
+            <form id="loginForm">
+              <label for="cpfLogin" class="block text-sm font-semibold mb-1">Seu CPF/CNPJ</label>
+              <input type="text" id="cpfLogin" name="cpf" required
+                    class="w-full border rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              <button type="submit"
+                      class="w-32 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition mx-auto block">
+                Log in
+              </button>
+            </form>
+        </div>
+      </div>
+
+      <!-- Ilustração -->
+      <div class="w-1/2 flex items-center justify-center p-6">
+        <img src="../search/log_ban.png" alt="Ilustração" class="w-full h-auto max-w-md" />
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../Login/login.js"></script>
+</body>
+</html>
