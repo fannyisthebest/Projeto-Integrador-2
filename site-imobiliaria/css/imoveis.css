@@ -23,12 +23,41 @@ body {
   padding: 0 20px;
 }
 
+/* Filtros */
+.filtros {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: center; /* Alinha verticalmente */
+}
+
+.filtros select,
+.filtros input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+  height: 40px; /* Altura padrão para todos */
+  box-sizing: border-box; /* Garante que padding não aumente a altura */
+}
+
+.filtros select:focus,
+.filtros input:focus {
+  border-color: #004080;
+  outline: none;
+}
+
 .imovel {
   background: #fff;
   padding: 20px;
   margin-bottom: 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: calc(25% - 20px); /* 100% ÷ 4 - gap */
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .imovel img {
@@ -154,10 +183,4 @@ body {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: flex-start; /* Alinha à esquerda */
-}
-
-.imovel {
-  width: calc(25% - 20px); /* 100% ÷ 4 - gap */
-  flex-shrink: 0;
-  box-sizing: border-box;
 }

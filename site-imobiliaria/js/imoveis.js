@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const lista = document.getElementById("listaImoveis");
+  const filtroTipo = document.getElementById("filtroTipo");
+  const filtroFinalidade = document.getElementById("filtroFinalidade");
+
   const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
   const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
 
@@ -117,74 +120,94 @@ document.addEventListener("DOMContentLoaded", () => {
       atualizarLocalStorage(imoveis);
       alert("Imóvel atualizado com sucesso!");
       modal.remove();
-      location.reload();
+      renderizarImoveis();
     };
   }
 
-  imoveis.forEach((imovel, index) => {
-    const div = document.createElement("div");
-    div.className = "imovel";
+  function renderizarImoveis() {
+    lista.innerHTML = "";
 
-    const swiperId = `swiper-${index}`;
-    const swiperHTML = `
-      <div class="swiper" id="${swiperId}">
-        <div class="swiper-wrapper">
-          ${imovel.fotos.map(foto => `
-            <div class="swiper-slide"><img src="${foto}" alt="Foto do imóvel"></div>
-          `).join("")}
+    const tipoSelecionado = filtroTipo.value;
+    const finalidadeSelecionada = filtroFinalidade.value;
+
+    const imoveisFiltrados = imoveis.filter(imovel => {
+      const tipoCond = tipoSelecionado ? imovel.tipo === tipoSelecionado : true;
+      const finalidadeCond = finalidadeSelecionada ? imovel.finalidade === finalidadeSelecionada : true;
+      return tipoCond && finalidadeCond;
+    });
+
+    imoveisFiltrados.forEach((imovel, index) => {
+      const div = document.createElement("div");
+      div.className = "imovel";
+
+      const swiperId = `swiper-${index}`;
+      const swiperHTML = `
+        <div class="swiper" id="${swiperId}">
+          <div class="swiper-wrapper">
+            ${imovel.fotos.map(foto => `
+              <div class="swiper-slide"><img src="${foto}" alt="Foto do imóvel"></div>
+            `).join("")}
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-    `;
+      `;
 
-    const html = `
-      ${swiperHTML}
-      <h3>${imovel.titulo}</h3>
-      <p><strong>Tipo:</strong> ${imovel.tipo}</p>
-      <p><strong>Finalidade:</strong> ${imovel.finalidade}</p>
-      <p><strong>Valor:</strong> R$ ${imovel.valor.toFixed(2)}</p>
-      <p><strong>IPTU:</strong> R$ ${imovel.iptu.toFixed(2)}</p>
-      <p><strong>Quartos:</strong> ${imovel.quartos}</p>
-      <p><strong>Banheiros:</strong> ${imovel.banheiros}</p>
-      <p><strong>Vagas:</strong> ${imovel.vagas}</p>
-      <p><strong>Proprietário:</strong> ${buscarNomePorCPF(imovel.proprietario)}</p>
-      <p><strong>Inquilino:</strong> ${imovel.inquilino ? buscarNomePorCPF(imovel.inquilino) : "Nenhum"}</p>
-      <p>${imovel.descricao}</p>
-      <div class="acoes">
-        <button class="editar">Editar</button>
-        <button class="excluir">Excluir</button>
-      </div>
-    `;
+      const html = `
+        ${swiperHTML}
+        <h3>${imovel.titulo}</h3>
+        <p><strong>Tipo:</strong> ${imovel.tipo}</p>
+        <p><strong>Finalidade:</strong> ${imovel.finalidade}</p>
+        <p><strong>Valor:</strong> R$ ${imovel.valor.toFixed(2)}</p>
+        <p><strong>IPTU:</strong> R$ ${imovel.iptu.toFixed(2)}</p>
+        <p><strong>Quartos:</strong> ${imovel.quartos}</p>
+        <p><strong>Banheiros:</strong> ${imovel.banheiros}</p>
+        <p><strong>Vagas:</strong> ${imovel.vagas}</p>
+        <p><strong>Proprietário:</strong> ${buscarNomePorCPF(imovel.proprietario)}</p>
+        <p><strong>Inquilino:</strong> ${imovel.inquilino ? buscarNomePorCPF(imovel.inquilino) : "Nenhum"}</p>
+        <p>${imovel.descricao}</p>
+        <div class="acoes">
+          <button class="editar">Editar</button>
+          <button class="excluir">Excluir</button>
+        </div>
+      `;
 
-    div.innerHTML = html;
-    lista.appendChild(div);
+      div.innerHTML = html;
+      lista.appendChild(div);
 
-    setTimeout(() => {
-      new Swiper(`#${swiperId}`, {
-        loop: true,
-        navigation: {
-          nextEl: `#${swiperId} .swiper-button-next`,
-          prevEl: `#${swiperId} .swiper-button-prev`
-        },
-        pagination: {
-          el: `#${swiperId} .swiper-pagination`,
-          clickable: true
+      setTimeout(() => {
+        new Swiper(`#${swiperId}`, {
+          loop: true,
+          navigation: {
+            nextEl: `#${swiperId} .swiper-button-next`,
+            prevEl: `#${swiperId} .swiper-button-prev`
+          },
+          pagination: {
+            el: `#${swiperId} .swiper-pagination`,
+            clickable: true
+          }
+        });
+      }, 0);
+
+      div.querySelector(".excluir").onclick = () => {
+        if (confirm("Deseja excluir este imóvel?")) {
+          const indexOriginal = imoveis.findIndex(i => i === imovel);
+          imoveis.splice(indexOriginal, 1);
+          atualizarLocalStorage(imoveis);
+          renderizarImoveis();
         }
-      });
-    }, 0);
+      };
 
-    div.querySelector(".excluir").onclick = () => {
-      if (confirm("Deseja excluir este imóvel?")) {
-        imoveis.splice(index, 1);
-        atualizarLocalStorage(imoveis);
-        location.reload();
-      }
-    };
+      div.querySelector(".editar").onclick = () => {
+        const indexOriginal = imoveis.findIndex(i => i === imovel);
+        abrirModalEdicao(imovel, indexOriginal);
+      };
+    });
+  }
 
-    div.querySelector(".editar").onclick = () => {
-      abrirModalEdicao(imovel, index);
-    };
-  });
+  filtroTipo.addEventListener("change", renderizarImoveis);
+  filtroFinalidade.addEventListener("change", renderizarImoveis);
+
+  renderizarImoveis();
 });
