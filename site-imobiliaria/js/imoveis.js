@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <option ${imovel.tipo === "apartamento" ? "selected" : ""}>apartamento</option>
             <option ${imovel.tipo === "terreno" ? "selected" : ""}>terreno</option>
             <option ${imovel.tipo === "comercial" ? "selected" : ""}>comercial</option>
+            <option ${imovel.tipo === "sobrado" ? "selected" : ""}>sobrado</option>
           </select>
 
           <label>Finalidade</label>

@@ -1,19 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
     const finalidade = params.get("finalidade");
+    const tipo = params.get("tipo");
+
     const tipoFiltro = document.getElementById("tipoFiltro");
     const listaImoveis = document.getElementById("listaImoveis");
 
-    tipoFiltro.textContent = finalidade ? finalidade.toUpperCase() : "TODOS";
+    tipoFiltro.textContent = finalidade
+        ? finalidade.toUpperCase()
+        : "TODOS";
 
     const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
 
-    const filtrados = finalidade 
-        ? imoveis.filter(imovel => imovel.finalidade === finalidade || imovel.finalidade === "ambos") 
-        : imoveis;
+    const filtrados = imoveis.filter(imovel => {
+        const condFinalidade = !finalidade || imovel.finalidade === finalidade || imovel.finalidade === "ambos";
+        const condTipo = !tipo || imovel.tipo === tipo;
+        return condFinalidade && condTipo;
+    });
 
     if (filtrados.length === 0) {
-        listaImoveis.innerHTML = `<p class="text-gray-500">Nenhum imóvel encontrado para "${finalidade}".</p>`;
+        listaImoveis.innerHTML = `<p class="text-gray-500">Nenhum imóvel encontrado para "${finalidade ?? 'todos'}".</p>`;
         return;
     }
 
@@ -21,14 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const div = document.createElement("div");
         div.className = "border rounded-lg overflow-hidden shadow-lg bg-white";
 
-        const imagem = imovel.fotos && imovel.fotos.length > 0 ? imovel.fotos[0] : "../search/no-image.png";
+        const imagem = imovel.fotos && imovel.fotos.length > 0
+            ? imovel.fotos[0]
+            : "../search/no-image.png";
 
         div.innerHTML = `
             <img src="${imagem}" alt="${imovel.titulo}" class="w-full h-48 object-cover">
             <div class="p-4">
                 <h3 class="text-xl font-semibold mb-2">${imovel.titulo}</h3>
-                <p class="text-gray-600 mb-2">${imovel.descricao}</p>
-                <p class="font-bold mb-2">R$ ${imovel.valor.toLocaleString('pt-BR')}</p>
+                <p class="text-gray-600 mb-2">${imovel.descricao || ""}</p>
+                <p class="font-bold mb-2">R$ ${parseFloat(imovel.valor).toLocaleString('pt-BR')}</p>
 
                 <div class="flex items-center text-sm mb-1 text-white">
                     <i class="fas fa-map-marker-alt mr-2 drop-shadow-[0_0_1px_black]"></i>
