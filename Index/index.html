@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="../Index/style.css" /> <!-- Referênciando Css -->
     <script src="../Index/script.js"></script> <!-- Referênciando JavaScript -->
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> <!-- Fonte POPPINS -->
+    <!-- SwiperJS CSS e JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind -->
+    <script src="https://unpkg.com/lucide@latest"></script> <!-- LucideIcons -->
 </head>
 <body class="font-sans back ">
     <!-- Navbar -->
@@ -123,7 +128,54 @@
           </div>
         </div>
       </div>
-      <h2 class="pt-6 title">Para quem deseja Alugar</h2>
+      <div class="flex pt-6 justify-between">
+      <h2 class="title">Para quem deseja Alugar</h2>
+      <h2>
+        <a href="../Imóveis/imoveis.html?finalidade=locacao"
+          class="hover:underline title inline-flex items-center gap-1 group">
+          Mais
+          <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+        </a>
+      </h2>
+      </div>
+    <!-- Carrossel de imóveis para locação -->
+    <div class="w-full py-10">
+      <div class="swiper-container">
+        <div class="swiper-wrapper" id="carrosselImoveis">
+          <!-- Imóveis serão inseridos aqui via JS -->
+        </div>
+        <!-- Setas de navegação -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Paginação opcional -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div class="flex pt-6 justify-between">
+      <h2 class="title">Para quem deseja Comprar</h2>
+      <h2>
+        <a href="../Imóveis/imoveis.html?finalidade=venda"
+          class="hover:underline title inline-flex items-center gap-1 group">
+          Mais
+          <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+        </a>
+      </h2>
+    </div>
+    <div class="w-full py-10">
+      <div class="swiper-container" id="carrosselVendaContainer">
+        <div class="swiper-wrapper" id="carrosselImoveisVenda">
+          <!-- Imóveis de venda serão inseridos aqui via JS -->
+        </div>
+        <!-- Setas de navegação -->
+        <div class="swiper-button-next venda-next"></div>
+        <div class="swiper-button-prev venda-prev"></div>
+        <!-- Paginação opcional -->
+        <div class="swiper-pagination venda-pagination"></div>
+      </div>
+    </div>
     </div> <!-- Div mãe para margem externa -->
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>
