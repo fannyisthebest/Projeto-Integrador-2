@@ -174,6 +174,149 @@
       </div>
     </div>
     </div> <!-- Div mãe para margem externa -->
+<footer class="bg-gray-100 text-gray-800 p-6 mt-10">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+
+    <div class="flex flex-col gap-4">
+      <img src="../search/logo.png" alt="Logo Márcia Imobiliária" class="w-32">
+      <p>Referência em soluções imobiliárias com ética, experiência e compromisso.</p>
+      <hr class="border-gray-400 w-16">
+      <p class="text-sm">&copy; 2025 Marcia Imobiliária. Todos os direitos reservados. CRECI 13021-F.</p>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <h3 class="font-semibold">Redes sociais</h3>
+      <div class="flex gap-3 text-xl">
+        <a href="https://www.facebook.com/marciaimobiliaria/?locale=pt_BR" class="hover:text-blue-600"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/marciaimobiliariafoz/" class="hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.marciaimobiliaria.com/youtube.com/channel/UCfpTpNLcio_Ghcs5ZXnxsyQ" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me/554535742800" class="hover:text-green-500"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <h3 class="font-semibold mt-4">Telefone</h3>
+      <a href="tel:+554535742800" class="text hover:underline">(45) 3574-2800</a>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <h3 class="font-semibold">Imóveis</h3>
+      <a href="../Index/index.html" class="hover:underline">Home</a>
+      <a href="../Imóveis/imoveis.html?finalidade=venda" class="hover:underline">Venda</a>
+      <a href="../Imóveis/imoveis.html?finalidade=locacao" class="hover:underline">Locação</a>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <h3 class="font-semibold">Quem somos</h3>
+      <a href="../Sobre-nós/sobrenos.html" class="hover:underline">Sobre nós</a>
+      <a href="../Contato/contato.html" class="hover:underline">Contato</a>
+      <a href="#" class="hover:underline">Blog</a>
+      <div class="mt-4 flex items-center me-10">
+        <p>Sou Locatário </p>
+        <a href="../Login/login.html"><button class="bg-black text-white px-3 py-1 rounded hover:bg-gray-800">Log in</button></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-6 border-t border-gray-400 pt-4 text-sm flex flex-col md:flex-row justify-start gap-5 text-center">
+      <!-- Botão que abre o modal de Política de Privacidade -->
+      <button id="openPrivacyModal" class="hover:underline">Política de privacidade</button>
+      <!-- Botão que abre o modal de Termos de Uso -->
+      <button id="openTermsModal" class="hover:underline">Termos de uso</button>
+    <a href="../Sobre-nós/sobrenos.html" class="hover:underline">Sobre nós</a>
+  </div>
+</footer>
+
+<!-- Modal de Política de Privacidade -->
+<div id="privacyModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl max-h-full overflow-y-auto">
+    <h2 class="text-xl font-semibold mb-4">Política de Privacidade</h2>
+    <p class="text-gray-700 text-sm mb-4">
+      Todas as suas informações pessoais recolhidas, serão usadas para ajudar a tornar a sua visita no nosso site a mais produtiva e agradável possível.<br><br>
+
+      A garantia da confidencialidade dos dados pessoais dos utilizadores do nosso site é importante para a Marcia Consultoria Imobiliária.<br><br>
+
+      Todas as informações pessoais relativas a membros, assinantes, clientes ou visitantes que usem a Marcia Consultoria Imobiliária serão tratadas em concordância com a Lei Geral de Proteção de Dados Pessoais (LGPD) de14 de Agosto de 2018 (Lei n.º 13.709/18).<br><br>
+
+      A informação pessoal recolhida pode incluir o seu nome, e-mail, número de telefone e/ou telemóvel, morada, data de nascimento e/ou outros.<br><br>
+
+      O uso da Marcia Consultoria Imobiliária pressupõe a aceitação deste acordo de privacidade. A equipe da Marcia Consultoria Imobiliária reserva-se ao direito de alterar este acordo sem aviso prévio. Deste modo, recomendamos que consulte a nossa política de privacidade com regularidade de forma a estar sempre atualizado.<br><br>
+
+      <strong class="block mt-2 mb-2">Os anúncios</strong>
+      Tal como outros websites, coletamos e utilizamos informação contida nos anúncios. A informação contida nos anúncios, inclui o seu endereço IP (Internet Protocol), o seu ISP (Internet Service Provider, como o Sapo, Clix, ou outro), o browser que utilizou ao visitar o nosso website (como o Internet Explorer ou o Firefox), o tempo da sua visita e que páginas visitou dentro do nosso website.<br><br>
+
+      <strong class="block mt-2 mb-2">Ligações a Sites de terceiros</strong>
+      A Marcia Consultoria Imobiliária possui ligações para outros sites, os quais, ao nosso ver, podem conter informações / ferramentas úteis para os nossos visitantes. A nossa política de privacidade não é aplicada a sites de terceiros, pelo que, caso visite outro site a partir do nosso deverá ler a politica de privacidade do mesmo.<br><br>
+
+      Não nos responsabilizamos pela política de privacidade ou conteúdo presente nesses mesmos sites.<br><br>
+
+      Grato pela compreensão de todos
+
+      Equipe Marcia Consultoria Imobiliária
+    </p>
+    <button id="closePrivacyModal" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 mt-4">Fechar</button>
+  </div>
+</div>
+
+<!-- Modal de Termos de Uso -->
+<div id="termsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl max-h-full overflow-y-auto">
+    <h2 class="text-xl font-semibold mb-4">Termos de Uso</h2>
+    <p class="text-gray-700 text-sm mb-4">
+      A Marcia Consultoria Imobiliária tem grande satisfação em oferecer informações a todos os usuários deste site e utiliza seus maiores esforços para proteger a privacidade de seus visitantes. Este site tem o propósito de recepcionar a quem nos visita, apresentando nossas empresas, nossos produtos e serviços. O acesso a esta página não implica em vínculo de qualquer natureza entre a Marcia Consultoria Imobiliária e o usuário.
+Direitos Autorais
+Os textos, imagens, gráficos, arquivos de som, arquivos de animação e arquivos de vídeo colocados à disposição no site estão sujeitos a direitos autorais e outras proteções de propriedade intelectual. Estes objetos não podem ser copiados para uso ou distribuição comercial, nem modificados ou reenviados a outros sites. Nada contido neste site deve ser considerado como concessão, licença ou transferência dos poderes dominiais da propriedade intelectual.<br><br>
+      A informação pessoal recolhida pode incluir o seu nome, e-mail, número de telefone e/ou telemóvel, morada, data de nascimento e/ou outros.<br><br>
+      O uso da Marcia Consultoria Imobiliária pressupõe a aceitação deste acordo de privacidade. A equipe da Marcia Consultoria Imobiliária reserva-se ao direito de alterar este acordo sem aviso prévio. Deste modo, recomendamos que consulte a nossa política de privacidade com regularidade de forma a estar sempre atualizado.<br><br>
+      <strong class="block mt-2 mb-2">Das Informações Disponibilizadas no Site</strong>
+      Embora a Marcia Consultoria Imobiliária procure sempre ser rigorosa na acuidade, precisão e atualização dos recursos, dados e informações dispostos no site, ela não se responsabiliza por quaisquer erros tipográficos, omissões ou imperfeições técnicas, nem por eventuais perdas e danos decorrentes dos mesmos, pois para a Compra ou Aluguel de qualquer imóvel é de suma importância que o cliente visite in loco o mesmo. É de suma importância ressalvar também que as informações contidas no site poderão ser alteradas ou atualizadas sem aviso prévio e que a qualquer instante, podem ocorrer mudanças em produtos, serviços e mesmo na veracidade de informações contidas, sem que tenhamos tido a oportunidade e possibilidade de alterá-los em nosso site.<br><br>
+      <strong class="block mt-2 mb-2">Cadastramento de Informações</strong>
+      O site oferece a oportunidade de introduzir dados pessoais ou profissionais (endereços de e-mail, nomes, etc.). A Marcia Consultoria Imobiliária zela pela segurança dos dados fornecidos através de moderno sistema de segurança. No entanto, esse sistema está sujeito a ações de terceiros e falhas que podem resultar em quebra do sigilo dos dados, pela qual a Marcia Consultoria Imobiliária expressamente não se responsabiliza.<br><br>
+      <strong class="block mt-2 mb-2">Do Uso e Acesso das Informações</strong>
+      Os dados pessoais transmitidos para este site poderão ser usados pela Marcia Consultoria Imobiliária para fins de envio de correspondência com ofertas de produtos e novidades da empresa e somente os funcionários autorizados e treinados terão acesso a eles.
+      <strong class="block mt-2 mb-2">Limites de Responsabilidade</strong>
+      A Marcia Consultoria Imobiliária não garante que os serviços prestados ao acessar e utilizar este site funcionem ininterruptamente ou se encontrem livres de erro, vírus ou outros elementos prejudiciais.
+      <strong class="block mt-2 mb-2">Vínculos com Outros Sites</strong>
+      A Marcia Consultoria Imobiliária não revisa qualquer dos sites que tem link com este e não é responsável pelo conteúdo e segurança dos mesmos. O usuário assume o risco ao acessar os links destes sites.
+    <strong class="block mt-2 mb-2">Alterações nos Termos de Uso</strong>
+      De tempos em tempos, pode se tornar necessário que a Marcia Consultoria Imobiliária modifique os Termos de Uso deste site, de modo que lhe sugerimos que verifique este local periodicamente. Tenha certeza, porém, que quaisquer mudanças não serão aplicadas retroativamente e não alterarão a forma pela qual manipulamos informações previamente coletadas
+    </p>
+    <button id="closeTermsModal" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 mt-4">Fechar</button>
+  </div>
+</div>
+
+<script>
+    // Política de Privacidade
+    const privacyModal = document.getElementById('privacyModal');
+    const openPrivacyModal = document.getElementById('openPrivacyModal');
+    const closePrivacyModal = document.getElementById('closePrivacyModal');
+
+    openPrivacyModal.addEventListener('click', () => {
+      privacyModal.classList.remove('hidden');
+    });
+    closePrivacyModal.addEventListener('click', () => {
+      privacyModal.classList.add('hidden');
+    });
+    window.addEventListener('click', (e) => {
+      if (e.target === privacyModal) {
+        privacyModal.classList.add('hidden');
+      }
+    });
+
+    // Termos de Uso
+    const termsModal = document.getElementById('termsModal');
+    const openTermsModal = document.getElementById('openTermsModal');
+    const closeTermsModal = document.getElementById('closeTermsModal');
+
+    openTermsModal.addEventListener('click', () => {
+      termsModal.classList.remove('hidden');
+    });
+    closeTermsModal.addEventListener('click', () => {
+      termsModal.classList.add('hidden');
+    });
+    window.addEventListener('click', (e) => {
+      if (e.target === termsModal) {
+        termsModal.classList.add('hidden');
+      }
+    });
+</script>
     <script>
       lucide.createIcons();
     </script>
