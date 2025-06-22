@@ -59,6 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `;
 
+        div.addEventListener("click", () => {
+            window.location.href = `../Imóveis/imovel.html?titulo=${imovel.titulo}`;
+            //console.log("deu certo",  window.location.href = `../Imoveis/imovel.html?id=${imovel.id}`);
+            console.log(imovel);
+            
+        });
+
+
         listaImoveis.appendChild(div);
     });
 });
