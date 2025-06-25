@@ -4,16 +4,208 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Detalhes do Imóvel</title>
-  <script defer src="imovel.js"></script> <!-- Arquivo JS separado -->
+  <script defer src="imovel.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <div class="max-w-5xl mx-auto p-6">
-    <div id="detalhesImovel" class="bg-white rounded-lg shadow-md p-6">
-      <!-- Os dados serão preenchidos pelo JavaScript -->
+    <!-- Navbar (já pronta) -->
+  <header class="absolute mt-4 w-full top-0  z-10 flex items-center justify-center   bg-transparent text-black" >
+     <div class="flex items-center justify-between bg-white px-10 py-3 w-[93%]" style="border-radius: 60px;">
+      <div class="flex items-center space-x-2">
+        <a href="../Index/index.html">
+          <img src="../search/logo.png" alt="Logo" class="h-10"></a>
+      </div>
+      <nav>
+        <ul class="hidden md:flex space-x-6">
+          <li><a href="../Sobre-nós/sobrenos.html" class="hover:underline">Sobre Nós</a></li>
+          <li><a href="../Imóveis/imoveis.html?finalidade=locacao" class="hover:underline">Locação</a></li>
+          <li><a href="../Imóveis/imoveis.html?finalidade=venda" class="hover:underline">Venda</a></li>
+          <li><a href="../Contato/contato.html" class="hover:underline">Contato</a></li>
+        </ul>
+      </nav>
+      <a href="../Login/login.html">
+      <button class="hidden md:block bg-white text-black px-4 py-2 rounded-full shadow hover:bg-gray-100 transition">
+        Sou locatário
+      </button></a>
+     </div>
+  </header>
+
+    <!-- Banner -->
+    <section class="bg-cover bg-center flex items-center justify-center text-center px-4 h-[85vh]">
+        <div class="text-white drop-shadow-lg">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 cursor-default"></h1>
+        </div>
+    </section>
+    
+      <!-- Ícone do WhatsApp -->
+  <div id="whatsapp-button"
+       class="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 p-4 rounded-full shadow-lg cursor-pointer transition duration-300">
+    <!-- Ícone SVG do WhatsApp -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.417-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.885-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.982zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.15-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.297.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.208-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413z"/>
+    </svg>
+  </div>
+
+  <div class="max-w-6xl mx-auto p-4 sm:p-6">
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+      
+      <!-- Imagem principal -->
+      <img id="imagemImovel" src="" alt="Imagem do imóvel" class="w-full h-[400px] object-cover">
+
+      <!-- Conteúdo -->
+      <div class="p-6 space-y-4">
+        <div class="flex justify-between items-center flex-wrap gap-2">
+          <h1 id="tituloImovel" class="text-3xl font-bold text-gray-800">Título do Imóvel</h1>
+          <p id="valorImovel" class="text-2xl font-bold text-green-600">R$ 0,00</p>
+        </div>
+
+        <p id="descricaoImovel" class="text-lg text-gray-700 leading-relaxed">Descrição do imóvel aqui.</p>
+
+        <!-- Localização -->
+        <div class="flex items-center gap-2 text-gray-600 text-sm">
+          <i class="fas fa-map-marker-alt text-red-500"></i>
+          <span id="localizacaoImovel">Rua, Bairro</span>
+        </div>
+
+        <!-- Ícones -->
+        <div class="grid grid-cols-3 gap-4 text-center mt-4">
+          <div class="bg-gray-100 rounded-lg p-4">
+            <i class="fas fa-bed text-xl text-indigo-600 mb-1"></i>
+            <p class="text-gray-600 text-sm">Quartos</p>
+            <p id="quartosImovel" class="text-xl font-bold">0</p>
+          </div>
+          <div class="bg-gray-100 rounded-lg p-4">
+            <i class="fas fa-bath text-xl text-indigo-600 mb-1"></i>
+            <p class="text-gray-600 text-sm">Banheiros</p>
+            <p id="banheirosImovel" class="text-xl font-bold">0</p>
+          </div>
+          <div class="bg-gray-100 rounded-lg p-4">
+            <i class="fas fa-car text-xl text-indigo-600 mb-1"></i>
+            <p class="text-gray-600 text-sm">Vagas</p>
+            <p id="vagasImovel" class="text-xl font-bold">0</p>
+          </div>
+        </div>
+
+        <!-- Botão de contato -->
+        <div class="text-center mt-8">
+          <a id="botaoContato" href="https://wa.me/5545999836365" target="_blank"
+             class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow transition">
+            <i class="fab fa-whatsapp mr-2"></i>Entrar em contato
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-gray-100 text-gray-800 p-6 mt-10">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+
+    <div class="flex flex-col gap-4">
+      <img src="../search/logo.png" alt="Logo Márcia Imobiliária" class="w-32">
+      <p>Referência em soluções imobiliárias com ética, experiência e compromisso.</p>
+      <hr class="border-gray-400 w-16">
+      <p class="text-sm">&copy; 2025 Marcia Imobiliária. Todos os direitos reservados. CRECI 13021-F.</p>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <h3 class="font-semibold">Redes sociais</h3>
+      <div class="flex gap-3 text-xl">
+        <a href="https://www.facebook.com/marciaimobiliaria/?locale=pt_BR" class="hover:text-blue-600"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/marciaimobiliariafoz/" class="hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.marciaimobiliaria.com/youtube.com/channel/UCfpTpNLcio_Ghcs5ZXnxsyQ" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me/554535742800" class="hover:text-green-500"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <h3 class="font-semibold mt-4">Telefone</h3>
+      <a href="tel:+554535742800" class="text hover:underline">(45) 3574-2800</a>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <h3 class="font-semibold">Imóveis</h3>
+      <a href="../Index/index.html" class="hover:underline">Home</a>
+      <a href="../Imóveis/imoveis.html?finalidade=venda" class="hover:underline">Venda</a>
+      <a href="../Imóveis/imoveis.html?finalidade=locacao" class="hover:underline">Locação</a>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <h3 class="font-semibold">Quem somos</h3>
+      <a href="../Sobre-nós/sobrenos.html" class="hover:underline">Sobre nós</a>
+      <a href="../Contato/contato.html" class="hover:underline">Contato</a>
+      <div class="mt-4 flex items-center me-10">
+        <p>Sou Locatário </p>
+        <a href="../Login/login.html"><button class="bg-black text-white px-3 py-1 rounded hover:bg-gray-800">Log in</button></a>
+      </div>
     </div>
   </div>
 
+  <div class="mt-6 border-t border-gray-400 pt-4 text-sm flex flex-col md:flex-row justify-start gap-5 text-center">
+      <!-- Botão que abre o modal de Política de Privacidade -->
+      <button id="openPrivacyModal" class="hover:underline">Política de privacidade</button>
+      <!-- Botão que abre o modal de Termos de Uso -->
+      <button id="openTermsModal" class="hover:underline">Termos de uso</button>
+    <a href="../Sobre-nós/sobrenos.html" class="hover:underline">Sobre nós</a>
+  </div>
+</footer>
+
+<!-- Modal de Política de Privacidade -->
+<div id="privacyModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl max-h-full overflow-y-auto">
+    <h2 class="text-xl font-semibold mb-4">Política de Privacidade</h2>
+    <p class="text-gray-700 text-sm mb-4">
+      Todas as suas informações pessoais recolhidas, serão usadas para ajudar a tornar a sua visita no nosso site a mais produtiva e agradável possível.<br><br>
+
+      A garantia da confidencialidade dos dados pessoais dos utilizadores do nosso site é importante para a Marcia Consultoria Imobiliária.<br><br>
+
+      Todas as informações pessoais relativas a membros, assinantes, clientes ou visitantes que usem a Marcia Consultoria Imobiliária serão tratadas em concordância com a Lei Geral de Proteção de Dados Pessoais (LGPD) de14 de Agosto de 2018 (Lei n.º 13.709/18).<br><br>
+
+      A informação pessoal recolhida pode incluir o seu nome, e-mail, número de telefone e/ou telemóvel, morada, data de nascimento e/ou outros.<br><br>
+
+      O uso da Marcia Consultoria Imobiliária pressupõe a aceitação deste acordo de privacidade. A equipe da Marcia Consultoria Imobiliária reserva-se ao direito de alterar este acordo sem aviso prévio. Deste modo, recomendamos que consulte a nossa política de privacidade com regularidade de forma a estar sempre atualizado.<br><br>
+
+      <strong class="block mt-2 mb-2">Os anúncios</strong>
+      Tal como outros websites, coletamos e utilizamos informação contida nos anúncios. A informação contida nos anúncios, inclui o seu endereço IP (Internet Protocol), o seu ISP (Internet Service Provider, como o Sapo, Clix, ou outro), o browser que utilizou ao visitar o nosso website (como o Internet Explorer ou o Firefox), o tempo da sua visita e que páginas visitou dentro do nosso website.<br><br>
+
+      <strong class="block mt-2 mb-2">Ligações a Sites de terceiros</strong>
+      A Marcia Consultoria Imobiliária possui ligações para outros sites, os quais, ao nosso ver, podem conter informações / ferramentas úteis para os nossos visitantes. A nossa política de privacidade não é aplicada a sites de terceiros, pelo que, caso visite outro site a partir do nosso deverá ler a politica de privacidade do mesmo.<br><br>
+
+      Não nos responsabilizamos pela política de privacidade ou conteúdo presente nesses mesmos sites.<br><br>
+
+      Grato pela compreensão de todos
+
+      Equipe Marcia Consultoria Imobiliária
+    </p>
+    <button id="closePrivacyModal" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 mt-4">Fechar</button>
+  </div>
+</div>
+
+<!-- Modal de Termos de Uso -->
+<div id="termsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl max-h-full overflow-y-auto">
+    <h2 class="text-xl font-semibold mb-4">Termos de Uso</h2>
+    <p class="text-gray-700 text-sm mb-4">
+      A Marcia Consultoria Imobiliária tem grande satisfação em oferecer informações a todos os usuários deste site e utiliza seus maiores esforços para proteger a privacidade de seus visitantes. Este site tem o propósito de recepcionar a quem nos visita, apresentando nossas empresas, nossos produtos e serviços. O acesso a esta página não implica em vínculo de qualquer natureza entre a Marcia Consultoria Imobiliária e o usuário.
+Direitos Autorais
+Os textos, imagens, gráficos, arquivos de som, arquivos de animação e arquivos de vídeo colocados à disposição no site estão sujeitos a direitos autorais e outras proteções de propriedade intelectual. Estes objetos não podem ser copiados para uso ou distribuição comercial, nem modificados ou reenviados a outros sites. Nada contido neste site deve ser considerado como concessão, licença ou transferência dos poderes dominiais da propriedade intelectual.<br><br>
+      A informação pessoal recolhida pode incluir o seu nome, e-mail, número de telefone e/ou telemóvel, morada, data de nascimento e/ou outros.<br><br>
+      O uso da Marcia Consultoria Imobiliária pressupõe a aceitação deste acordo de privacidade. A equipe da Marcia Consultoria Imobiliária reserva-se ao direito de alterar este acordo sem aviso prévio. Deste modo, recomendamos que consulte a nossa política de privacidade com regularidade de forma a estar sempre atualizado.<br><br>
+      <strong class="block mt-2 mb-2">Das Informações Disponibilizadas no Site</strong>
+      Embora a Marcia Consultoria Imobiliária procure sempre ser rigorosa na acuidade, precisão e atualização dos recursos, dados e informações dispostos no site, ela não se responsabiliza por quaisquer erros tipográficos, omissões ou imperfeições técnicas, nem por eventuais perdas e danos decorrentes dos mesmos, pois para a Compra ou Aluguel de qualquer imóvel é de suma importância que o cliente visite in loco o mesmo. É de suma importância ressalvar também que as informações contidas no site poderão ser alteradas ou atualizadas sem aviso prévio e que a qualquer instante, podem ocorrer mudanças em produtos, serviços e mesmo na veracidade de informações contidas, sem que tenhamos tido a oportunidade e possibilidade de alterá-los em nosso site.<br><br>
+      <strong class="block mt-2 mb-2">Cadastramento de Informações</strong>
+      O site oferece a oportunidade de introduzir dados pessoais ou profissionais (endereços de e-mail, nomes, etc.). A Marcia Consultoria Imobiliária zela pela segurança dos dados fornecidos através de moderno sistema de segurança. No entanto, esse sistema está sujeito a ações de terceiros e falhas que podem resultar em quebra do sigilo dos dados, pela qual a Marcia Consultoria Imobiliária expressamente não se responsabiliza.<br><br>
+      <strong class="block mt-2 mb-2">Do Uso e Acesso das Informações</strong>
+      Os dados pessoais transmitidos para este site poderão ser usados pela Marcia Consultoria Imobiliária para fins de envio de correspondência com ofertas de produtos e novidades da empresa e somente os funcionários autorizados e treinados terão acesso a eles.
+      <strong class="block mt-2 mb-2">Limites de Responsabilidade</strong>
+      A Marcia Consultoria Imobiliária não garante que os serviços prestados ao acessar e utilizar este site funcionem ininterruptamente ou se encontrem livres de erro, vírus ou outros elementos prejudiciais.
+      <strong class="block mt-2 mb-2">Vínculos com Outros Sites</strong>
+      A Marcia Consultoria Imobiliária não revisa qualquer dos sites que tem link com este e não é responsável pelo conteúdo e segurança dos mesmos. O usuário assume o risco ao acessar os links destes sites.
+    <strong class="block mt-2 mb-2">Alterações nos Termos de Uso</strong>
+      De tempos em tempos, pode se tornar necessário que a Marcia Consultoria Imobiliária modifique os Termos de Uso deste site, de modo que lhe sugerimos que verifique este local periodicamente. Tenha certeza, porém, que quaisquer mudanças não serão aplicadas retroativamente e não alterarão a forma pela qual manipulamos informações previamente coletadas
+    </p>
+    <button id="closeTermsModal" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 mt-4">Fechar</button>
+  </div>
+</div>
+
+  <script src="../whatsicon.js"></script>
+  <script src="../footer.js"></script>
 </body>
 </html>
